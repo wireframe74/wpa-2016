@@ -1,0 +1,169 @@
+
+
+#footer {
+	background: $primary-color url(../images/custom/footer-tile.gif) top left repeat-x;
+	padding-top: 70px;
+	border-top:none;
+
+	@media (max-width:767px) {
+		background-color: $primary-color;
+		background-image:none;
+		
+	}
+
+	p, 
+	a {
+		color:#fff;
+	}
+
+	p {
+		margin-bottom:20px;
+	}
+
+	.border-top {
+		border-color:#FFF;
+		margin: 0 0 0 0;
+	}
+
+	h2 {
+		background-color: $primary-color;
+		padding: 0 20px;
+
+		margin-top: 0;
+		margin-bottom:0;
+		display: inline-block;
+		width: auto;
+		font-size: .8em;
+		text-transform: uppercase;
+		color: #fff;
+		position: relative;
+		top: -33px;
+		left: -20px;
+		
+
+		@media (max-width:690px) {
+			left:0;
+			padding:0;
+			text-align:left;
+			margin-bottom:-20px;
+			margin-top:10px;
+			
+		}
+	}
+
+		.form-inline {
+			padding-bottom: 10px;
+
+			margin-bottom:20px;
+
+		
+			
+
+			input[type="email"] {
+
+				width: 60%;
+				font-size:.8em;
+				border-radius:3px;
+				float: left;
+				@extend .primary-font;
+				text-transform: none;
+				background-color: #f3a0b4;
+				color: #fff;
+				@extend .transition;
+				@include input-placeholder {
+				color: #fff;
+				}
+
+				@media (max-width:991px) {
+					width:100%;
+				}
+
+				&::placeholder {
+					color:#fff;
+				}
+
+			
+
+			
+
+				&:focus {
+					background-color:#fff;
+					color:#222;
+					text-transform: none;
+				}
+
+				
+
+			}
+			
+
+			input[type="submit"]  { 
+			width: 38%;
+			border-radius:3px;
+			@extend .transition;
+			float: right;
+			background-color: #f8f3ea;
+			color: $primary-color;
+			@extend .primary-font;
+			@extend .letter-spacing;
+			max-width: none;
+			font-size:.8em; 
+			    padding: 17px;
+		
+
+			@media (max-width:895px) {
+				margin-top: 20px;
+
+			}
+
+			&:hover,
+			&:focus {
+			background-color:darken($primary-color,30%);
+			color:#fff;
+			}
+
+			@media (max-width:991px) {
+					width:100%;
+					margin:10px 0;
+				}
+
+
+		
+
+
+			}
+
+		}
+
+
+	#copyrights {
+		background-color:  $secondary-color;
+		height: 55px;
+		padding: 0;
+		line-height: 55px;
+	
+
+		
+
+		
+			ul {
+
+				padding: 0;
+				margin:0;
+					li {
+						display: inline;
+						float: left;
+						list-style-type: none;
+						margin:0 10px 0 0; 
+					}
+
+					a {
+						color: #333;
+					}
+				}
+		
+		
+
+	}
+	
+}

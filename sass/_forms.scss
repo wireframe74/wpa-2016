@@ -1,0 +1,147 @@
+body .gform_wrapper label.gfield_label+div.ginput_container {
+	margin-top: 0;
+}
+
+
+input[type="submit"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+	padding:17px;
+/* 	height: 55px;
+	line-height: 55px; */
+	border: none;
+
+	@media (max-width:767px) {
+		width:100%;
+	}
+
+    
+} 
+
+
+input[type="submit"] {
+	max-width:320px;
+	float:right;
+	color:#fff;
+	@extend .btn-primary;
+}
+
+.gform_wrapper  {
+
+	 
+    width:100%;
+
+    li {
+    float:left;
+    width:48%;
+    list-style:none;
+    padding:0;
+
+        input[type="password"],
+        input[type="number"],
+        input[type="text"] {
+            background-color:#CCC;
+        }
+
+    }
+
+}
+
+
+
+
+.content  .gform_wrapper  {
+
+	width:100%;
+	max-width:none;
+   
+
+    .gform_footer {
+    padding: 0;
+    margin-bottom: 60px;
+    padding-right: 1%; 
+	}
+    
+
+
+    
+    ul {
+
+    	width:100%;
+
+    	li.input-full-width {
+    		width: 100%;
+
+    		ul.gfield_checkbox {
+    			li{
+    			width: 100%;
+    			padding-left: 30px;
+    			@extend .body-copy;
+    			text-transform:none;
+    			@extend .body-copy; 
+    			
+
+    			label {
+    				margin-left: 35px;
+    				@extend .body-copy;
+    				font-size:.7em;
+    			}
+
+    			} 
+
+
+    		}
+
+    	}
+    	
+
+	    li {
+		 float: left;
+	    display: inline-block;
+	    width: 50%;
+	    list-style: none;
+	    padding: 0;
+	    padding-left: 0;
+	    padding-top:0;
+	    background: none;
+
+	   
+	    clear: none!Important;
+	    padding-right: 1%;
+	    margin-bottom: 10px;
+	    margin-top:none;
+
+	    &:last-child {
+	    	margin-bottom:0;
+	    }
+
+
+	    label.gfield_label {
+	    	display:none;
+	    }
+
+
+
+        input[type="password"],
+        input[type="number"],
+        input[type="text"],
+        textarea,
+        select {
+            background-color:$light-grey;
+            padding:10px 13px;
+            width:100%;
+             @extend .primary-font;
+             border:none;
+
+        }
+
+    }
+
+
+    }
+    
+    
+
+}

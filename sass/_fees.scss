@@ -1,0 +1,59 @@
+.page-template-fees {
+
+		.table-align {
+			padding: 0	
+		}
+
+		.table-align .td:first-child {
+			@media (max-width: 991px) {
+			margin-bottom:0;
+			}
+		}
+
+		article.course-listing-itm {
+			@media (max-width: 991px) {
+			margin-bottom: 40px;
+			}
+		}
+
+
+
+
+
+
+	.course-listing-itm {
+		h3 {
+			color: $primary-color;
+		}
+	}
+
+	.secondary-bg {
+	background:  $light-beige;
+	padding: 24px  20px 22px;
+	margin-top: 20px;
+	@extend .primary-font;
+	text-align: center;
+
+		@media (max-width:767px) {
+			max-width: 380px;
+			margin: 20px auto;
+		}
+
+			p, span {
+				font-family: inherit;
+			}
+
+			.price {
+				color: $primary-color;
+			}
+
+			.full-price {
+				font-size: 2em;
+				
+			}
+	}
+
+
+}
+
+

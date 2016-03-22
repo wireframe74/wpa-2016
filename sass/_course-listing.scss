@@ -1,0 +1,216 @@
+
+.course-listing-itm.pull-right {
+margin-top: 30px;
+
+section.prices {
+float: left;
+}
+
+border-bottom: 1px solid $secondary-color;
+}
+
+
+
+section.prices  {
+
+
+	.price-counter {
+		span {
+			font-size:16px!Important;
+		}
+	}
+	
+
+ 		float: right;
+ 		
+ 		text-align: right;
+ 		background: #f8f3e9;
+ 		margin-bottom:30px;
+ 		
+ 		clear:both;
+
+ 	padding: 0 20px;
+    background: #f8f3e9;
+    text-transform: uppercase;
+    margin: 20px 0 30px;
+    height: 56px;
+    line-height: 55px;
+
+    @media(max-width:767px) {
+    	text-align:left;
+    	float:left;
+    }
+
+
+ 	
+
+	 		p {
+	 			
+			font-size: .9em;
+			@extend .primary-font;
+ 			font-weight: normal;
+ 			color:#333;
+ 			margin-bottom: 0; 
+ 			display: inline-block;
+ 			
+				&:first-child {
+				padding: 0 20px;
+				background: #f8f3e9;
+				text-transform: uppercase;
+				@extend .primary-font;
+				margin-top:0;
+
+					@media(max-width:767px) {
+						padding: 5px;
+					}
+				}
+
+
+	 		.price {
+ 			color: $primary-color;
+ 			@extend .primary-font;
+ 			font-weight: normal;
+ 			
+ 			
+			span {
+				@extend .primary-font;
+				color:$primary-color;
+			}
+ 			
+ 			}
+
+ 		}
+
+ 		
+ 		
+ 		
+
+ 		
+
+ 		a {
+ 			// display:inline-block;
+ 			display: block;
+ 			color: #333;
+ 			background: #e6ddce;
+ 			padding: 0 20px;
+ 			@extend .transition;
+ 			@extend .primary-font;
+ 			font-weight: normal;
+ 			height:55px;
+ 			line-height:55px;
+ 			margin-right:-20px;
+
+
+ 			&:hover {
+ 				background: $primary-color;
+ 				color: #FFF;
+ 			}
+ 		}
+ 	}
+
+ 	.course-listing-template {
+
+	 section.intro-courses {
+	 	margin-top:60px;
+
+	 	h2.title {
+	 		margin-bottom:0;
+	 	}
+
+	 	 h2 span.em {
+	 	 	text-transform: none;
+	 	 }
+
+
+	 	p {
+	 		margin-top:40px;
+	 	}
+	 }
+
+		.table-align {
+
+			@media (max-width:991px) {
+				padding: 0;
+			}
+		
+		}
+
+
+		.course-listing-itm {
+		border-bottom: 1px solid $secondary-color;
+
+		&:last-child {
+			border-bottom:none!important;
+		}
+
+			h3 {
+	 				margin-top: 0;
+	 			}
+ 
+
+
+			@media (max-width:767px) {
+				text-align: center;
+
+				img {
+				margin:0 auto;
+				display:block;
+				float:none;
+				}	
+
+				.prices {
+
+					width: 100%;
+
+					background-color: transparent;
+				
+					p {
+				    margin-bottom: 20px;
+				    width: 100%;
+				    text-align: center;
+					}
+
+				} 
+			}
+
+		 .td {
+			
+				&:first-child {
+			
+				}
+		}
+
+
+		}
+
+
+		
+
+
+	section.course-comparison { 
+
+		.td {
+
+		width: 30%;
+
+			&:first-child {
+				width: 70%;
+
+				img {
+					width: 100%;
+					max-width:770px;
+					height: auto;
+					}
+			}
+		}
+
+	}
+
+}
+// .course-listing-template wrapping class
+
+
+
+
+
+ 	

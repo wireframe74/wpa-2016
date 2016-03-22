@@ -1,0 +1,188 @@
+
+
+ .primary-font  {
+ 	font-family: 'Montserrat', sans-serif;
+ 	text-transform: uppercase;
+ }
+
+.section {
+	padding: 60px 0;
+	position: relative;
+	width: 100%;
+	background:none;
+	margin:20px 0;
+}
+
+.border-top {
+	border-top: 4px solid $secondary-color;
+
+	.table-align {
+		margin-bottom:30px;
+	}
+ }
+
+.transition {
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+
+ .table-align {
+	display: table;
+	width: 100%;
+	padding: 0 50px;
+	
+	@include clearfix;
+	table-layout: fixed;
+	position:relative;
+
+	@media (max-width:991px) {
+				width: 100%;
+				display: block;
+				padding:0;
+			}
+
+	.td {
+		vertical-align: middle;
+		position:relative;
+		display: table-cell;
+		
+		float:none;
+			p:last-child {
+			margin-bottom:0;
+			}
+			
+		@media (max-width:991px) {
+
+			padding-left:15px;
+		padding-right:15px;
+				width: 100%;
+				text-align:center;
+
+				> * {
+					text-align: center!important;
+				}
+		}
+		
+		&:first-child {
+		
+			
+
+			@media (max-width:991px) {
+				width: 100%!IMPORTANT;
+				display: block;
+				margin-bottom: 30px;
+			}
+		}
+
+		img {
+			
+			width: 100%;
+			height: auto;
+			max-width: 	315px; 
+			float:right;
+
+			@media (max-width:991px) {
+				margin-bottom:20px!important;
+				float:none;
+			}
+		}
+	}
+}
+
+
+
+
+.table-align.right-img {
+		padding: 0;
+		width: 100%;
+
+		.td {
+		
+
+			&:last-child {
+				width:30%;
+				
+
+				img {
+					padding-left:30px;
+					max-width:400px;
+					margin:0;
+
+					@media (max-width:890px) {
+						margin:0 auto;
+					}
+				}
+			}
+		}
+
+
+
+	}
+
+
+
+.table-align.left-img {
+		padding: 0;
+		width: 100%;
+
+		.td {
+		
+			
+
+			&:first-child {
+				width:30%;
+				
+
+				img {
+					padding-right:30px;
+					max-width:320px;
+					margin:0;
+
+					@media (max-width:890px) {
+						margin:0 auto;
+						padding-right:0;
+					}
+
+
+
+
+				}
+			}
+		}
+
+
+
+	}
+
+
+
+
+.fbox-center {
+
+	h3 {
+		font-size: 1em;
+		margin-bottom:0;
+		letter-spacing:.2em;
+		@extend .primary-font;
+		padding-top:0!important;
+		color:#000;
+
+		span {
+		font-size: 1.5em;
+		}
+	}
+
+
+
+
+	img {
+		width: 100%;
+		height: auto;
+		max-width: 200px;
+	}
+	text-align: center;
+	text-transform: uppercase;
+	
+	
+}

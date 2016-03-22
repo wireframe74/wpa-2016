@@ -1,0 +1,189 @@
+
+
+
+section.about {
+
+	@media (max-width:991px) {
+		text-align: center;
+	}
+
+	p:last-child {
+		margin-bottom:0;
+	}
+	
+	
+	.testimonial-credit {
+		@extend .primary-font;
+		color: $primary-color;
+		// @extend .letter-spacing;
+		font-size: 1em;   
+		text-transform:none; 
+	}
+
+}
+
+
+.student-showcase {
+	img { 
+		display: block;
+		margin: 0 auto;
+	}
+
+	.btn {
+		position: relative;
+		    bottom: 0px;
+    left: 20%;
+    min-width:240px;
+
+    @media (max-width:550px) {
+    	left:0;
+    	margin-top:40px;
+    	width:100%;
+    }
+
+	}
+}
+
+
+section.advisory-board  {
+
+	height: 213px;
+	
+
+
+	// height: 213px;
+
+	.vertical-align {
+		margin-bottom:0;
+		padding:70px 0;
+	
+		
+
+		
+		position:relative;
+
+	}
+	padding: 0;
+
+	.academy-wrap {
+		// background: url(../images/home/phone-banner.png) top right -100px no-repeat;
+
+		.td {
+			letter-spacing:0;
+			display:table-cell;
+			vertical-align:middle;
+		}
+
+		div:first-child {
+			
+			
+
+			@media (max-width: 890px) {
+				padding: 50px 15px;
+			}
+			
+		}
+
+		
+	}
+}
+
+
+
+section.work-experience  {
+	
+	p:last-child {
+		margin-bottom:0;
+	}
+
+
+	h2.title {
+		margin-top: 0;
+		padding: 0 0 10px;
+		margin-bottom: 20px;
+	}
+
+	
+}
+
+
+
+
+section.icons {
+	@include clearfix;
+	background: url(../images/home/blur-bg.jpg) top left no-repeat;
+	width: 100%;
+	background-size: cover;
+	padding: 80px 0;
+
+	.feature-box.fbox-center:not(.fbox-bg) h3:after {
+    display: none;
+	}
+
+	.col-xs-4 {
+		@media (max-width:520px) {
+			width:100%;
+			margin-bottom:30px;
+		}
+	}
+
+
+
+	.fbox-center h3 span {
+		font-size: 35px; 
+		font-weight:bold;
+		margin-bottom:-10px;
+		display:block;
+		padding:0;
+		line-height:1em;
+
+    @extend .primary-font;
+	
+	}
+
+	.feature-box.fbox-center .fbox-icon {
+    width: auto;
+    height: auto;
+    margin-bottom:0;
+}
+
+.feature-box .fbox-icon img {
+    border-radius:0;
+    background-color: transparent;
+    margin: 0 auto;
+}
+
+
+
+}
+
+
+section.academy-tv {
+
+	td:first-child {
+		text-align: center;
+
+		p {
+			text-align: left;
+		}
+	}
+
+	h2 {
+
+	
+		text-align: center;
+
+		
+		span.em {
+			text-transform: none;
+		}
+	}
+
+	
+}
+
+// $icons-spacing: 100px;
+// $icons-sprite-dimensions: true;
+
+// @import "icons/*.png";
+// @include all-icons-sprites;

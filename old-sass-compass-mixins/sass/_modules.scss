@@ -1,0 +1,39 @@
+// VIDEO
+
+.img-wrapper {
+    position: relative;
+   
+}
+
+
+
+.latest-hangout-link {
+    background: url(../images/custom/about/play-btn-large-white.png) center center no-repeat;
+    display: block;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 25%;
+
+    &:hover {
+    opacity: 0.6;
+    }
+}
+
+.blur-bg {
+    @include clearfix;
+    background: url(../images/home/blur-bg.jpg) top left no-repeat;
+	width: 100%;
+	background-size: cover;
+    padding: 80px 0;
+}
+
+.beige-bg {
+    @include clearfix;
+    background: $secondary-color;
+    width: 100%;
+    padding: 40px 0; 
+}

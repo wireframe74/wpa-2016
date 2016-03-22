@@ -1,0 +1,39 @@
+.page-template-inspire {
+
+	.student-success-wrap {
+
+		padding: 40px 0;
+		
+		h2,
+		h2 span {
+			font-weight: bold;
+		}
+
+		.table-align .td img {
+		max-width: 222px;
+		height: auto;
+		}
+	}
+
+	
+
+	.student-month-wrap {
+
+
+
+		.btn {
+			margin-top:10px;
+		}
+
+		.table-align.right-img {
+
+			td {
+
+				width: 50%;
+				&:last-child {
+					width: 50%;
+				}
+			}
+		}
+	}
+}

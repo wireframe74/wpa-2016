@@ -1,0 +1,35 @@
+@import "compass/reset";
+@import "compass/layout";
+@import "compass/css3";
+@import "compass/utilities";
+@import "compass/typography"; 
+
+
+@import 'bootstrap'; 
+@import "variables";
+@import "forms";
+@import 'globals';   
+
+
+@import 'fonts';
+@import 'buttons';
+@import 'layout';
+@import 'modules';
+
+@import 'header';
+@import 'footer';
+@import 'menu';
+
+
+// PAGES
+
+@import 'home'; 
+@import 'about';
+@import 'course-detail';
+@import 'course-listing';
+@import 'woocommerce';
+@import 'wc-my-account';
+@import 'full-width';
+@import 'inspire';
+@import 'academy-tv';
+@import 'fees';

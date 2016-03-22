@@ -1,0 +1,173 @@
+
+
+
+body {
+	font-size:14px;
+}
+
+
+	h1,h2,h3,h4,h5,
+	ul.site-nav li a{
+		font-family: 'Montserrat', sans-serif;
+		color: #000;
+		letter-spacing: .2em;
+		text-transform:uppercase;
+	}
+
+	p {
+		line-height:1.6em;
+		letter-spacing:.05em;
+
+	}
+
+	p,
+	li,
+	a,
+	span {
+		font-family: 'Arimo', sans-serif;
+		
+		font-weight: normal;
+		color: #000;
+	}
+
+	.em {
+		font-family: 'Alex Brush', cursive;
+		font-weight: normal;
+	}
+	 
+
+	ul.site-nav li a {
+		
+		text-transform: uppercase;
+		letter-spacing: .2em;
+		font-size: .6em;
+		text-decoration: none;
+
+		@include link-colors(#fff, #000, #000, #000, #000);
+		
+	}
+
+	h2 {
+		  font-size: .9em;
+		  text-transform: uppercase;
+		  color: #333;
+	}
+
+	h2.title {
+	  position: relative;
+	  text-align: center;
+	  margin-top:-18px;
+	  padding:0 20px;
+	  margin-bottom:0; 
+	
+	   // @include hide-text;
+	   text-transform: uppercase;
+	    font-size: 1.1em;
+		letter-spacing: .2em;
+		font-weight: bold;
+		color: #333;
+		background:#FFF;
+		
+		@include inline-block;
+		width:auto;
+	
+		margin-bottom:40px;
+		line-height:1.4em;
+
+	}
+
+	h2.title.center-align {
+	  text-align: center;
+	  margin: -35px auto 0;
+	  @include inline-block;
+	}
+
+	h2.title.right-align {
+		text-align: right;
+		float:right;
+	}
+
+	h2 span.em {
+	font-family: 'Alex Brush', cursive;
+	font-size: 2.6em;
+	letter-spacing:0;
+	color: #C1A657;
+	text-transform:none;
+	
+	font-weight:normal;
+	}
+
+
+
+
+
+
+
+
+.heading {
+	text-transform: uppercase;
+}
+
+h2.background {
+    position: relative;
+    z-index: 1;
+    font-weight:bold;
+    
+    &:before {
+        border-top: 3px solid $secondary-color;
+        content:"";
+        margin: 0 auto; /* this centers the line to the full width specified */
+        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    span.bg-line { 
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+        background: #fff; 
+        padding: 0 20px; 
+		color: #333;
+		font-weight: bold;
+		font-size: 19px;
+		@extend .primary-font;
+    }
+}
+
+
+
+.content {
+
+
+	img + ul {
+	float: left
+	}
+
+	ul li {
+		@include pretty-bullets("custom/bullet.png", 18px, 18px,24px); 
+		 // @include pretty-bullets("blue_arrow.gif", 5px, 7px, 18px);
+
+	    margin-left: 0;
+	    list-style-type: none;
+	    padding-left: 24px;
+	    line-height: 26px;
+	    background: url(../images/custom/bullet.png) top 8px left 2px no-repeat;
+	    background-size: 9px;
+	}
+
+}
+
+h2.title.bdr-btm {
+	border-bottom: 3px solid $secondary-color;
+	display: block;
+	text-align: left;
+}
+
+.feature-box.fbox-center:not(.fbox-bg) h3  {
+    @extend .primary-font;
+
+	    span {
+	    	    @extend .primary-font;
+	    }
+	}
+

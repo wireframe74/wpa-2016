@@ -1,0 +1,15 @@
+input[type="submit"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+	padding:17px;
+/* 	height: 55px;
+	line-height: 55px; */
+	border: none;
+
+	@media (max-width:767px) {
+		width:100%;
+	}
+} 
+

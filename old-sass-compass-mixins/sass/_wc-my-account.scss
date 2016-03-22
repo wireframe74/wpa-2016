@@ -1,0 +1,120 @@
+.my-account {
+
+
+p {
+	font-size:18px;
+}
+
+
+
+input[type="submit"] {
+	width: 49%;
+	margin:10px 0 10px 0;
+}
+input[value="Delete card"] {
+	margin: 0;width: 100%;
+}
+
+
+ .woocommerce form.login, 
+ .woocommerce form.register {
+  border: none;
+  padding: 0;
+  margin: 2em 0;
+  text-align: left;
+  border-radius: 0;
+  width: 50%;
+
+  
+  @media all and (min-width:250px) and (max-width:991px) {
+  width: 100%
+	}
+  
+  
+  input[type="submit"] {
+	width: 100%;
+
+	}
+
+}
+
+
+
+	
+	table.my_account_orders .order-actions .button {
+	font-size: 14px;
+	@extend .body-copy;
+	background-color: $lighter-grey;
+	color: #222;
+		text-transform: none
+	}
+
+	.table-striped > tbody > tr:nth-child(odd) > td, 
+	.table-striped > tbody > tr:nth-child(odd) > th, 
+	.table-striped > tbody > tr:nth-child(even) > td, 
+	.table-striped > tbody > tr:nth-child(even) > th,
+
+	{
+	  color: #222;
+	  border-top: none;
+	  vertical-align: top;
+	  padding: 20px;
+	}
+
+	.order-total {
+		background-color: #FFF;
+	}
+
+	.container.content {
+		margin-bottom: 0;
+	}
+}
+
+
+.woocommerce {
+
+	.myaccount_user,
+	.myaccount_address {
+		font-size: 18px;
+	}
+
+	address {
+	@extend .body-copy;
+	font-weight:normal;
+	font-size:18px;
+	padding:0;
+	}
+
+	legend {
+		@extend .body-copy;
+		margin-top: 30px;
+		margin-bottom: 20px;
+	  display: block;
+	  float: left;
+	  border: none;
+	}
+
+	.button[value="Save changes"] {
+	margin-top: 10px;
+	margin-bottom:40px;
+	}
+
+
+}
+
+
+
+
+.woocommerce p a {
+		@extend .underline
+	}
+
+
+ .woocommerce .table-striped > tbody > tr.order-total > td {
+ 	border-top: none
+ }
+
+ .woocommerce .table-striped > tbody > tr.order-total > th,
+.woocommerce .table-striped > tbody > tr.order-total > td {
+	border-top: 2px solid #ddd;
+}

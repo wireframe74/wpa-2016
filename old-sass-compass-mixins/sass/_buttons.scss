@@ -1,0 +1,60 @@
+.btn {
+ @include unstyled-link();
+ @include transition-property(background-color);
+ @include border-radius(3px);
+
+@extend .transition;
+
+ padding: 15px;
+ border:none;
+ min-width:200px;
+ @extend .primary-font;
+	 &:hover {
+	 	cursor: pointer;
+	 }
+	text-transform: uppercase;
+	font-size: .8em;
+	letter-spacing: .2em;
+
+	&:active {
+		margin-top:2px;
+	}
+}
+ 
+ .btn-sm {
+ 	padding: 7px 5px;
+ }
+
+
+.btn-primary {
+	background-color: $primary-color;
+	@include link-colors(#fff, #FFF, #000, #FFF, #000);
+	&:hover,
+	&:active,
+	&:focus,
+	 {
+		background-color:darken($primary-color,20%)!IMPORTANT;
+		@include box-shadow(darken($primary-color,36%) 0 2px 0);
+		
+	}
+
+	
+	 @include box-shadow(darken($primary-color,20%) 0 2px 0);
+} 
+
+
+.btn-secondary{
+	background-color: $secondary-color;
+	@include link-colors(#000, #fff, #fff, #fff, #fff);
+	&:hover,
+	&:active,
+	&:focus,
+	{
+		background:darken($secondary-color,20%);
+		@include box-shadow( darken($secondary-color,36%) 0 2px 0);
+	}
+	@include box-shadow( darken($secondary-color,20%) 0 2px 0);
+	
+	
+	
+}

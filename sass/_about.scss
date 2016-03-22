@@ -1,0 +1,42 @@
+body.page-template-about {
+
+h3 { 
+	text-transform: uppercase;
+	    font-size: .9em; 
+}
+ 
+	.tutors {
+		h3 {
+	    color: $primary-color;
+	    font-weight:bold;
+		}
+
+	
+	}
+
+
+
+ 
+	section.about {
+		.table-align { 
+			padding:0;
+		}
+	}
+	
+
+	section.partners  {
+		h3 {
+	    color: #333;
+	    font-weight:bold;
+		}
+
+	}
+
+	section.values {
+		h3 {
+			text-align:center;
+			font-weight:bold;
+		}
+	}
+
+}

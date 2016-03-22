@@ -1,0 +1,44 @@
+// VARIABLE + MIXINS
+
+ $primary-color:#ea7d97;  
+ $secondary-color: #e6ddce;
+ $tertiary-color: #e6ddce;
+ $light-beige: #f8f3e9;
+
+$grey:#424242;
+$light-grey:#DFDFDF;
+$lighter-grey: #f7f7f7;
+
+
+
+.body-copy {
+	font-family: 'Lato', sans-serif;
+}
+
+.secondary-color {
+	color:$secondary-color;
+}
+
+.letter-spacing {
+	letter-spacing:.2em;
+}
+
+.underline {
+	text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+}
+
+@mixin easy-image($img) {
+	background-image:image-url($img);
+	max-width: image-width($img);
+	width: 100%;
+	height: image-height($img);
+}
+
+.transition {
+-webkit-transition: all .5s;
+-o-transition: all .5s;
+transition: all .5s;
+}

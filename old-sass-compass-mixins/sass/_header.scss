@@ -1,0 +1,255 @@
+// #header,
+// #header-wrap {
+// 	height:100px;
+// 	}
+
+
+
+// 	#primary-menu:not(.style-2) > ul,
+// 	#primary-menu ul li a {
+//     height: 100px;
+// 	}
+
+// 	section.header-image {
+
+// 	position:relative;
+
+// 	img {
+// 		position: relative;
+// 		z-index: 1;
+// 	}
+
+// 	.container {
+// 		z-index: 2;
+// 	}
+
+// 	a {
+// 		position: absolute;
+// 		z-index: 2;
+// 		left: 50%;
+// 		top:50px;
+// 		display: block;
+// 			img {
+// 				max-width: 220px;
+// 			}
+
+// 	}
+// }
+
+[class^="socicon-"]:before, 
+[class*=" socicon-"]:before {
+	line-height:1.8;
+	font-size:1em;
+}
+
+body #header.full-header .container {
+width: 100%;
+max-width:1200px;
+
+	@media (max-width: 991px) {
+		 width: 100% !important;
+	}
+}
+
+
+
+#top-search form input {
+	@extend .primary-font;
+}
+
+section.connect {
+padding-top:15px;
+	
+
+
+	margin-top: 0;
+	
+	@extend .container;
+	
+ 	p {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: .9em;
+		@extend .primary-font;
+		letter-spacing: .2em;
+
+		a {
+			@extend .primary-font;	
+			color:$primary-color;
+		}
+
+		@media (max-width:991px) {
+			margin:10px 0 8px;
+		}
+
+	}
+
+	.btn {
+		width: 100%;
+		text-align: center;
+		display: block;
+		@include border-radius(3px);
+		max-width:290px;
+
+		@media (max-width:991px) {
+			max-width:none;
+			margin-bottom:10px;
+
+		}
+
+	}
+
+	.btn-secondary {
+		float:right;
+	}
+
+	.btn-primary {
+		float:left;
+	}
+}
+
+
+
+section.social {
+
+	position:relative;
+	z-index:4;
+	top:-15px;
+
+	ul {
+		
+		text-align: center;
+		float: none;
+
+		li  {
+			display: inline-block;
+			margin-right:7px;
+			
+			
+		}
+
+		a {
+			@include unstyled-link();
+			@include border-radius(50%);
+			background-color: $primary-color;
+			
+			
+			border:4px solid #fff;
+			width: 35px;
+			display: block;
+			padding: 0;
+			line-height:25px;
+			
+			
+			
+			@include link-colors(#fff, #000, #fff, #fff, #fff);
+			
+		}
+		
+	}
+
+}
+
+
+#header.full-header  {
+	#header-wrap {
+		// background-color:$primary-color;
+		background-color:#fff;
+
+
+#primary-menu {
+// background-color: $primary-color; 
+// margin-right: auto;
+// margin-left: auto;
+height:100px;
+min-height:35px;
+margin-bottom:0;
+float:right; 
+//width:100%; 
+
+	ul {
+	color: #FFF;
+	margin-top:1px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	// text-align: center;
+	// float: none;
+	border-right:none;
+	height: 100px;
+
+		li {
+			
+			float:left;
+			display:block;
+			
+    
+  background:none;
+  padding:0;
+
+			a {
+				margin-right:12px; 
+				 line-height: 100px;
+				@include link-colors(#333, $primary-color, $primary-color, #333, #333);
+				@extend .transition;
+				@extend .primary-font;
+				    padding: 0 0;
+				    font-weight:normal;
+				    font-size:.8em;
+				    height: 100px;
+				    display:block;
+				   
+			}
+		}
+
+	} 
+
+}
+
+
+
+
+
+	}
+}
+
+#logo  {
+
+	@extend .transition;
+	
+border-right:none;
+	img {
+	height:60px
+	}
+}
+
+// ONCE NAV IS SHRUNKEN CSS
+
+#header.sticky-header:not(.static-sticky) {
+	#header-wrap {
+		height: 100px;
+
+		#logo  {
+		padding-top:5px;
+		}
+
+	}
+
+	#header-wrap #primary-menu ul li,
+	#header-wrap #primary-menu {
+		height: 100px;
+	}
+
+	#header-wrap #primary-menu ul li a {
+		line-height: 100px;
+
+		
+	}
+
+
+} 
+
+// REPSONSIVE
+body:not(.top-search-open) #header-wrap #logo {
+	padding-top: 20px;
+}

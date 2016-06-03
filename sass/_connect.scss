@@ -1,0 +1,186 @@
+body.page-template-connect {
+
+.industry-news {
+	display: block !important;
+}
+
+
+.table-align.left-img .td:first-child {
+width: 50%;
+
+	img {
+		max-width:none;
+	}
+	
+}
+
+
+
+.academy-tv-section {
+
+	img {
+		width: 100%;
+		max-width:800px;
+		margin: 30px auto;
+	}
+}
+
+.google-hangouts {
+	.td img {
+		width: 100%;
+		height: auto;
+		max-width: none;
+	}
+}
+
+
+.wedbizhour {
+
+h2 {
+	color: $primary-color;
+
+	span {
+		color:#333;
+		text-transform: none;
+		letter-spacing: 0;
+		@extend .body-copy;
+	}	
+}
+}
+
+
+.news-module {
+	margin-bottom: 20px;
+	@include display-flex();
+-js-display: flex;
+
+
+	> div  {
+		padding: 15px;
+	}
+
+	.thumb-news {
+		margin: auto 0;
+		width: 30%;
+		float: left;
+		img {
+			width: 100%;
+			height: auto;
+			@include border-radius (50%);
+
+		}
+	}
+
+	.excerpt-news {
+		width: 60%;
+		float: left;
+		margin: auto 0;
+	}
+
+}
+
+	.col-sm-3 img {
+		width: 100%;
+		height: auto;
+	}
+
+}
+
+.border-bottom {
+	border-bottom:5px solid $primary-color;
+	padding-bottom: 30px
+}
+
+.industry-news  {
+	display: block;
+
+	.col-md-3 {
+		padding-left: 0;
+		@media (max-width:767px) {
+			display: none;
+		}
+	}
+
+.news-row {
+
+	
+
+	a {
+	 font-weight: normal; 
+    color: $primary-color;
+
+	    &:hover {
+	    	color: #000;
+	    }
+	}
+
+	.excerptized-show-more {
+		display: none !important
+	}
+
+
+
+	&:first-child {
+		border-bottom: 4px solid $primary-color;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
+}
+	.row {
+		@include display-flex();
+-js-display: flex;
+		@include align-items(center);
+	}
+
+	 margin: -20px 0 70px;
+	 @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+
+	h2 {
+		margin-bottom: 10px;
+	
+	}
+
+	.col-md-9 {
+display: none;
+
+
+	p ,
+	 {
+	display: none;
+
+	} 
+	
+	a {
+		max-width: 200px;
+		position: absolute;
+		bottom: 0;
+
+		@media (max-width:600px) {
+		position: relative;
+		text-align: center;
+
+		}
+	}
+
+
+
+	p:first-of-type {
+		display: inline;
+	}
+
+
+
+
+
+	} 
+}
+
+
+section.podcasts .btn {
+	@media (max-width:600px) {
+	float: none !important;
+	margin-top: 20px;
+	}
+}

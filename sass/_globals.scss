@@ -1,5 +1,18 @@
+body {
+height: 100%
+}
+
+
+.section.container {
+	@extend .container;
+}
 // MODAL
 
+.col-xs-6 {
+	@media (max-width:400px) {
+	width: 100%!important;
+	}
+}
 .modal-content {
     border-radius: 0;
 }
@@ -33,13 +46,27 @@
 	.profile-img {
 		display: block;
 		margin: 0 auto 20px;
+		@include border-radius(50%);
 	}
 }
 
 
+.zerotopmargin {
+	margin-top: -40px;
+}
 
+.dark span[class^="icon-"] {
+	color: #fff;
+	font-size: 1.2em;
+}
 
+.gform_validation_container {
+	display: none
+}
 
+.no-label > label {
+display: none
+}
 
  .primary-font  {
  	font-family: 'Montserrat', sans-serif;
@@ -94,11 +121,12 @@
 			}
 			
 		@media (max-width:991px) {
-
+display: block;
 			padding-left:15px;
 		padding-right:15px;
-				width: 100%;
+				width: 100%!important;
 				text-align:center;
+
 
 				> * {
 					text-align: center!important;
@@ -151,6 +179,7 @@
 
 					@media (max-width:890px) {
 						margin:0 auto;
+						padding: 0;
 					}
 				}
 			}
@@ -228,7 +257,23 @@
 }
 
 .profile-item{
-	margin:0 0 20px
+	margin:0 0 20px;
+
+
+	@media all and (min-width:200px) and (max-width:991px) {
+	margin-bottom: 40px;
+	}
+	
+	
+
+	p {
+	@media all and (min-width:200px) and (max-width:991px) {
+	max-width: 320px;
+	margin: 0 auto;
+	}
+		
+		
+	}
 }
 
 
@@ -271,4 +316,127 @@
     	margin-left: 0;
     }
     
+}
+
+.no-padding {
+	padding: 0!important
+}
+
+// COLUMNS
+
+.column-3 {
+    @include columns(20em 3);
+    padding-left: 15px;
+    padding-right: 15px;
+    
+   @media (max-width:900px) {
+         @include columns(25em 2);
+    }
+}
+
+.column-2{
+    @include columns(20em 2);
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    @media (max-width:600px) {
+         @include columns(100% 1);
+    }
+}
+
+
+.column-4{
+    @include columns(15em 4);
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    @media (max-width:1100px) {
+         @include columns(25em 2);
+    }
+}
+
+
+img.center {
+	display: block;
+	margin: 0 auto;
+}
+
+// @media all and (min-width:200px) and (max-width:767px) {
+// 	.table-align.left-img .td:first-child img,
+// 	.content img {
+// 	max-width: 250px!IMPORTANT;
+// 	margin: 0 auto;
+// 	text-align: center;
+// 	}
+
+// 	.student-showcase img {
+// 		max-width: 100%!important;
+
+// 	}
+
+//   }
+
+
+
+.download-brochure {
+
+	#field_11_10 {
+	padding: 30px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid $secondary-color;
+
+		> label {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+
+	}
+
+	.gchoice_11_5_1 {
+		width: 100% !important;
+		margin-top: 10px;
+	}
+
+	
+
+	.content .gform_wrapper ul li.input-full ul.gfield_checkbox {
+		@include display-flex();
+-js-display: flex;
+		@include display-flex;
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+		margin-top: 0;
+
+		li {
+			width: 33%;
+		}
+	}
+		
+
+
+}
+
+
+.download-itm {
+
+display: block;
+
+	@media all and (min-width:200px) and (max-width:550px) {
+		width: 100%;
+		clear: both;
+	
+	  }
+	
+	
+	margin-bottom: 30px;
+
+	img {
+		max-width: 220px;
+	}
+
+	.icon-acrobat {
+		color: #fff;
+	}
 }

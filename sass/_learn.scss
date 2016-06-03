@@ -1,0 +1,41 @@
+.page-template-learn {
+
+
+    .table-align .td img {
+        max-width: none;
+
+        @media (max-width:991px) {
+        max-width: 300px!important;
+        }
+    }
+
+    .study-online  {
+
+    h3 {
+    color: $primary-color;
+    }
+
+
+
+    }
+
+
+
+
+}
+
+
+
+.business-intro {
+    h2 {
+        
+        span.em {
+        font-size: 5em;
+        }
+
+    }
+
+    p {
+       font-size: 1.1em; 
+    }
+}

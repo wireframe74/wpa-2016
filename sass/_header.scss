@@ -1,40 +1,14 @@
-// #header,
-// #header-wrap {
-// 	height:100px;
-// 	}
 
 
 
-// 	#primary-menu:not(.style-2) > ul,
-// 	#primary-menu ul li a {
-//     height: 100px;
-// 	}
+body #header-wrap #logo {
+  @media (max-width:991px) {
+  width: 160px;
+  border: 1px solid;
+  float: left;
+  }
+}
 
-// 	section.header-image {
-
-// 	position:relative;
-
-// 	img {
-// 		position: relative;
-// 		z-index: 1;
-// 	}
-
-// 	.container {
-// 		z-index: 2;
-// 	}
-
-// 	a {
-// 		position: absolute;
-// 		z-index: 2;
-// 		left: 50%;
-// 		top:50px;
-// 		display: block;
-// 			img {
-// 				max-width: 220px;
-// 			}
-
-// 	}
-// }
 
 [class^="socicon-"]:before, 
 [class*=" socicon-"]:before {
@@ -62,6 +36,7 @@ section.connect .btn {
 
 section.connect {
 padding-top:15px;
+padding-bottom: 20px; 
 	
 
 
@@ -135,19 +110,32 @@ section.social {
 			text-decoration:none;
 			border-radius:50%;
 			background-color: $primary-color;
-			
-			
+			-webkit-box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.03);
+			-moz-box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.03);
+			box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.03);
+			background-position: center center;
 			border:4px solid #fff;
 			width: 35px;
 			display: block;
 			padding: 0;
-			line-height:25px;
+			line-height:28px;
+			width: 35px;
+			height: 35px;
+			@extend .transition;
+			background-repeat: no-repeat;
+			
+  
+
 
 			@include link-colors(#fff, #000, #fff, #fff, #fff);
 			
 			
 			
 			color: #FFF;
+
+			&:hover {
+				background-color:darken($primary-color,18%);
+			}
 			
 		}
 		
@@ -203,9 +191,16 @@ float:right;
 				@extend .primary-font;
 				    padding: 0 0;
 				    font-weight:normal;
-				    font-size:.8em;
+				    font-size:1.1em;
 				    height: 100px;
 				    display:block;
+				        margin-right: 12px;
+
+    font-family: 'Arimo', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+
+
 				   
 			}
 		}
@@ -260,4 +255,69 @@ border-right:none;
 // REPSONSIVE
 body:not(.top-search-open) #header-wrap #logo {
 	padding-top: 20px;
+}
+
+
+.social + .connect .col-sm-12 {
+
+	@media all and (min-width:200px) and (max-width:991px) {
+	clear: both;
+	overflow: hidden;
+	}
+	
+	
+}
+
+body:not(.top-search-open) #header-wrap #logo {
+
+	@media all and (min-width:200px) and (max-width:400px) {
+	padding-left: 0 !important;
+	}
+
+	 @media  (max-width:991px) {
+	 padding-top: 20px !important;
+	 }
+	 
+	 
+}
+
+body {
+
+#header.sticky-header:not(.static-sticky) #header-wrap,
+#header.sticky-header:not(.static-sticky) #header-wrap #primary-menu ul li, 
+#header.sticky-header:not(.static-sticky) #header-wrap #primary-menu  {
+    height: 60px;
+}
+
+
+#header.sticky-header:not(.static-sticky) #header-wrap #primary-menu ul li a {
+    line-height: 60px;
+    height: 60px;
+}
+
+
+
+
+}  
+
+
+ li.instagram-ico a  {
+	background: $primary-color url(../svg/instagram.svg) center center no-repeat;
+	background-size: 70%;
+}
+
+
+ li.twitter-ico a  {
+	background: $primary-color url(../svg/twitter.svg) center center no-repeat;
+	background-size: 70%;
+}
+
+ li.facebook-ico a  {
+	background: $primary-color url(../svg/facebook.svg) center center no-repeat;
+	background-size: 40%;
+}
+
+ li.youtube-ico a  {
+	background: $primary-color url(../svg/youtube.svg) center center no-repeat;
+	background-size: 62%;
 }

@@ -1,5 +1,9 @@
 
-
+.img-wrapper {
+	@media (max-width:767px) {
+	margin-top: 20px;
+	}
+}
 
 section.about {
 
@@ -47,39 +51,37 @@ section.about {
 
 section.advisory-board  {
 
-	height: 213px;
-	
-
-
-	// height: 213px;
-
-	.vertical-align {
-		margin-bottom:0;
-		padding:70px 0;
-	
-		
-
-		
-		position:relative;
-
-	}
 	padding: 0;
+
+@media (max-width:991px) {
+	padding: 50px 20px;
+	text-align: center;
+	.phone-container {
+		display: none
+	}
+}
+
 
 	.academy-wrap {
 		// background: url(../images/home/phone-banner.png) top right -100px no-repeat;
+		@include display-flex();
+-js-display: flex;
 
-		.td {
-			letter-spacing:0;
-			display:table-cell;
-			vertical-align:middle;
+
+		.phone-container {
+			@media (max-width: 890px) {
+			display: none;
+			}
 		}
 
 		div:first-child {
-			
-			
+			p {
+				margin-bottom: 3px
+			}
 
+			margin: auto 0;
 			@media (max-width: 890px) {
-				padding: 50px 15px;
+			padding: 20px;
 			}
 			
 		}

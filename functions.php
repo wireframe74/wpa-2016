@@ -1,5 +1,42 @@
 <?php
 
+
+function _acf_ricg_image($image, $alt='', $class = '', $size='full') {
+
+    if (!empty($image)) {
+        if (!$alt) {
+            $alt = $image['alt'];
+        }
+                
+        $url = $image['url'];
+        
+        if ($size) {
+            if (isset($image['sizes'][$size])) {
+                $url = $image['sizes'][$size];
+            }           
+        }
+        
+        if (function_exists('wp_get_attachment_image_srcset')) { 
+            $img = '<img src="'. $url . '" srcset="' . wp_get_attachment_image_srcset( $image['id'], $size ) . '" alt="' . $alt . '"';
+        } else {
+            $img = '<img src="'. $url . '" alt="' . $alt . '"';
+        }
+        
+        if ($class) { 
+            $img .= ' class="' . $class . '"';
+        }
+        $img .= ' />';
+        
+        return $img;
+    }   
+}
+
+
+
+
+
+
+
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
@@ -14,92 +51,14 @@ function custom_field_excerpt() {
         $text = apply_filters('the_content', $text);
         $text = str_replace(']]>', ']]>', $text);
         $excerpt_length = 20; // 20 words
-        $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-        $text = wp_trim_words( $text, $excerpt_length, '[...]' );
+        $excerpt_more = apply_filters('excerpt_more', ' ' . '...');
+        $text = wp_trim_words( $text, $excerpt_length, '...' );
     }
     return apply_filters('the_excerpt', $text);
 }
 
 
 
-// ADD AED TO PAYPAL
-
-/**
- * this code will add an unsupported currency to Woocommerce
- * it will convert any amounts including those for a subscription product into a supported currency (in this case USD)
- * paypal HTML variables can be found at https://developer.paypal.com/webapps/developer/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/#id08A6HI00JQU
- * payment processing can then be done via Paypal
- * this example uses the UAE Dirham (or AED)
- * note - any orders placed this way are automatically placed on-hold by Woocommerce due to an amount mismatch and MUST be manually updated to processing or complete, esp with virtual or downloadable orders.
- */
- 
-/*Step 1 Code to use AED currency to display Dirhams in WooCommerce:*/
-add_filter( 'woocommerce_currencies', 'add_aed_currency' );  
-function add_aed_currency( $currencies ) {  
-    $currencies['AED'] = __( 'UAE Dirham', 'woocommerce' );  
-    return $currencies;  
-}
-/*Step 2 Code to add AED currency symbol in WooCommerce:*/
-add_filter('woocommerce_currency_symbol', 'add_aed_currency_symbol', 10, 2);  
-function add_aed_currency_symbol( $currency_symbol, $currency ) {  
-    switch( $currency ) {  
-        case 'AED': $currency_symbol = 'AED'; break;  
-    }  
-    return $currency_symbol;  
-}  
-add_filter( 'woocommerce_paypal_supported_currencies', 'add_aed_paypal_valid_currency' );       
-function add_aed_paypal_valid_currency( $currencies ) {    
-    array_push ( $currencies , 'AED' );  
-    return $currencies;    
-}   
-/*Step 3 – Code to change 'AED' currency to ‘USD’ before checking out with Paypal through WooCommerce:*/
-add_filter('woocommerce_paypal_args', 'convert_aed_to_usd', 11 );  
-function get_currency($from_Currency='USD', $to_Currency='AED') {
-    $url = "http://www.google.com/finance/converter?a=1&from=$from_Currency&to=$to_Currency";
-    $ch = curl_init();
-    $timeout = 0;
-    curl_setopt ($ch, CURLOPT_URL, $url);
-    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt ($ch, CURLOPT_USERAGENT,
-                 "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
-    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-    $rawdata = curl_exec($ch);
-    curl_close($ch);
-    $data = explode('bld>', $rawdata);
-    $data = explode($to_Currency, $data[1]);
-    return round($data[0], 2);
-}
-function convert_aed_to_usd($paypal_args) {
-    if ( $paypal_args['currency_code'] == 'AED') {  
-        $convert_rate = get_currency(); //Set converting rate
-        $paypal_args['currency_code'] = 'USD'; //change AED to USD  
-        $i = 1;  
-        
-        while (isset($paypal_args['amount_' . $i])) {  
-            $paypal_args['amount_' . $i] = round( $paypal_args['amount_' . $i] / $convert_rate, 2);
-            ++$i;  
-        }  
-        if ( $paypal_args['discount_amount_cart'] > 0 ) {
-            $paypal_args['discount_amount_cart'] = round( $paypal_args['discount_amount_cart'] / $convert_rate, 2);
-        }
-        if ( $paypal_args['tax_cart'] > 0 ) {
-            $paypal_args['tax_cart'] = round( $paypal_args['tax_cart'] / $convert_rate, 2);
-        }
-        if (isset($paypal_args['a1'])) { 
-            $paypal_args['a1'] = round( $paypal_args['a1'] / $convert_rate, 2);
-            $paypal_args['currency_code'] = USD;
-        }       
-        if (isset($paypal_args['a2'])) { 
-            $paypal_args['a2'] = round( $paypal_args['a2'] / $convert_rate, 2);
-            $paypal_args['currency_code'] = USD;
-        }       
-        if (isset($paypal_args['a3'])) { 
-            $paypal_args['a3'] = round( $paypal_args['a3'] / $convert_rate, 2);
-            $paypal_args['currency_code'] = USD;
-        }   
-    }
-return $paypal_args;  
-}   
 
 
 // remove_filter( 'the_content', 'wpautop' );
@@ -132,17 +91,14 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
+    add_image_size('large', 900, '', true); 
+    add_image_size('medium', 400, '', true); 
+    add_image_size('video-thumb', 280, 155, true);
+    add_image_size('gallery-thumb', 250, 250, true); 
+    add_image_size('header', 1920, 610, true);
+ 
 
-    add_image_size('video-thumb', 280, 155, true); 
-    add_image_size('header', 1920, 610, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
-
-    add_image_size('medium', 280, '', true); // Medium Thumbnail
-
-     add_image_size('portfolio-thumb', 600, 450, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
-     add_image_size('portfolio-large', 1400, 930, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
 
 
@@ -214,14 +170,6 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
-
-
-
-        wp_register_script('jqueryScript', get_template_directory_uri() . '/js/jquery.js'); // jquery
-        wp_enqueue_script('jqueryScript'); 
-
 
         wp_register_script('plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '1.0.0'); // plugins
         wp_enqueue_script('plugins');
@@ -229,17 +177,6 @@ function html5blank_header_scripts()
         
         wp_register_script('fns', get_template_directory_uri() . '/js/functions.js', array('jquery'), '1.0.0', TRUE); // Custom scripts
         wp_enqueue_script('fns'); 
-
-
-   
-
-        
-
-
-
-
-
-
 
 
 
@@ -258,42 +195,31 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
+    wp_register_style('normalize', get_template_directory_uri() . '/normalize.min.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('html5blank'); // Enqueue it!
-
-
-    wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '1.0', 'all');
-    wp_enqueue_style('bootstrap'); 
 
     wp_register_style('style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('style'); 
+    wp_enqueue_style('style');
 
-    wp_register_style('dark', get_template_directory_uri() . '/css/dark.css', array(), '1.0', 'all');
-    wp_enqueue_style('dark'); 
 
     wp_register_style('font-icons', get_template_directory_uri() . '/css/font-icons.css', array(), '1.0', 'all');
-    wp_enqueue_style('font-icons'); 
 
     wp_register_style('animate', get_template_directory_uri() . '/css/animate.css', array(), '1.0', 'all');
-    wp_enqueue_style('animate'); 
+    // wp_enqueue_style('animate'); 
 
     wp_register_style('popup', get_template_directory_uri() . '/css/magnific-popup.css', array(), '1.0', 'all');
     wp_enqueue_style('popup'); 
 
     wp_register_style('responsive', get_template_directory_uri() . '/css/responsive.css', array(), '1.0', 'all');
-    wp_enqueue_style('responsive'); 
+    wp_enqueue_style('responsive');
 
-    wp_register_style('montserrat', get_template_directory_uri() . '/css/responsive.css', array(), '1.0', 'all');
-    wp_enqueue_style('responsive'); 
-
-    wp_register_style('responsive', get_template_directory_uri() . '/css/responsive.css', array(), '1.0', 'all');
-    wp_enqueue_style('responsive'); 
 
     wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat|Arimo:400,700|Alex+Brush', array(), '1.0', 'all');
     wp_enqueue_style('google-fonts');
+
+
+    
 
     wp_register_style('custom', get_template_directory_uri() . '/css/style.css', array(), '1.0', 'all');
     wp_enqueue_style('custom'); 
@@ -352,13 +278,8 @@ if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
-        'id' => 'widget-area-1',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
+        'name' => __('Tweets', 'html5blank'),
+        'id' => 'tweets',
     ));
 
     // Define Sidebar Widget Area 2
@@ -547,8 +468,8 @@ add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (S
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
-// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
-// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
+add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
+add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
 // add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
@@ -642,7 +563,49 @@ function register_cpt() {
     'supports' => array( 'title', 'editor', 'custom-fields' ),
 
 
+
+
+
 ));
+
+
+    register_post_type( 'podcast', array(
+    'labels' => array(
+    'name' => 'Podcasts',
+    'singular_name' => 'podcast',
+    ),
+    'description' => 'Academy Podcasts.',
+    'public' => true,
+    'menu_position' => 18,
+    'supports' => array( 'title', 'editor', 'custom-fields' )
+    ));
+
+
+    register_post_type( 'google-hangouts', array(
+    'labels' => array(
+    'name' => 'Google Hangouts',
+    'singular_name' => 'google-hangout',
+    ),
+    'description' => 'Google Hangout Videos',
+    'public' => true,
+    'menu_position' => 17,
+    'supports' => array( 'title', 'editor', 'custom-fields' ),
+    ));
+
+
+    register_post_type( 'student-of-the-month', array(
+    'labels' => array(
+    'name' => 'Student of the Month',
+    'singular_name' => 'student-of-the-month',
+    ),
+    'description' => 'Student of the Month',
+    'public' => true,
+    'menu_position' => 19,
+    'supports' => array( 'title', 'editor', 'custom-fields' ),
+    ));
+
+
+
 
 
 
@@ -661,19 +624,101 @@ if( function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));
-    
-    // acf_add_options_sub_page(array(
-    //     'page_title'    => 'Global Settings',
-    //     'menu_title'    => 'Global Settings',
-    //     'parent_slug'   => 'theme-general-settings',
-    // ));
-    
-    // acf_add_options_sub_page(array(
-    //     'page_title'    => 'Theme Footer Settings',
-    //     'menu_title'    => 'Footer',
-    //     'parent_slug'   => 'theme-general-settings',
-    // ));
-    
+
+}
+
+
+
+// REMOVE CACHED STATIC URLS + EMOJI + COMMENT REPLY
+
+function ewp_remove_script_version( $src ){
+    return remove_query_arg( 'ver', $src );
+}
+add_filter( 'script_loader_src', 'ewp_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'ewp_remove_script_version', 15, 1 );
+
+
+function clean_header(){
+wp_deregister_script( 'comment-reply' );
+         }
+add_action('init','clean_header');
+
+
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+
+ function change_empty_cart_button_url() {
+    return get_site_url() . '/courses' ;
+}
+add_filter( 'woocommerce_return_to_shop_redirect', 'change_empty_cart_button_url' );
+
+
+/**
+ * Optimize WooCommerce Scripts
+ * Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
+ */
+add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+
+function child_manage_woocommerce_styles() {
+    //remove generator meta tag
+    remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
+
+    //first check that woo exists to prevent fatal errors
+    if ( function_exists( 'is_woocommerce' ) ) {
+        //dequeue scripts and styles
+        if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
+            wp_dequeue_style( 'woocommerce_frontend_styles' );
+            wp_dequeue_style( 'woocommerce_fancybox_styles' );
+            wp_dequeue_style( 'woocommerce_chosen_styles' );
+            wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
+            wp_dequeue_script( 'wc_price_slider' );
+            wp_dequeue_script( 'wc-single-product' );
+            wp_dequeue_script( 'wc-add-to-cart' );
+            wp_dequeue_script( 'wc-cart-fragments' );
+            wp_dequeue_script( 'wc-checkout' );
+            wp_dequeue_script( 'wc-add-to-cart-variation' );
+            wp_dequeue_script( 'wc-single-product' );
+            wp_dequeue_script( 'wc-cart' );
+            wp_dequeue_script( 'wc-chosen' );
+            wp_dequeue_script( 'woocommerce' );
+            wp_dequeue_script( 'prettyPhoto' );
+            wp_dequeue_script( 'prettyPhoto-init' );
+            wp_dequeue_script( 'jquery-blockui' );
+            wp_dequeue_script( 'jquery-placeholder' );
+            wp_dequeue_script( 'fancybox' );
+            wp_dequeue_script( 'jqueryui' );
+        }
+    }
+
+}
+
+function create_routes($router) {
+    $router->add_route('chargebee/create-customer', array(
+        'path' => 'chargebee/create-customer',
+        'access_callback' => true,
+        'page_callback' => 'chargebee_create_customer_callback'));
+    $router->add_route('chargebee/create-subscription', array(
+        'path' => 'chargebee/create-subscription',
+        'access_callback' => true,
+        'page_callback' => 'chargebee_create_subscription_callback'));
+    $router->add_route('chargebee/thankyou', array(
+        'path' => 'chargebee/thankyou',
+        'access_callback' => true,
+        'page_callback' => 'chargebee_thankyou_callback'));
+}
+add_action('wp_router_generate_routes', 'create_routes');
+function chargebee_create_customer_callback() {
+    load_template(get_template_directory().'/chargebee/create-customer.php', false);
+}
+function chargebee_create_subscription_callback() {
+    load_template(get_template_directory().'/chargebee/create-subscription.php', false);
+}
+function chargebee_thankyou_callback() {
+    load_template(get_template_directory().'/chargebee/thankyou.php', false);
 }
 
 ?>

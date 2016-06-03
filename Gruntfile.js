@@ -128,6 +128,26 @@ cssmin: {
       ]
     },
 
+ iconizr: {
+            options: {
+                dims: true,
+                common: "svg-icon",
+                keep      : false,
+                preview   : 'preview',
+                padding: 1,
+                render    : {
+                    css     : false,
+                    scss    : '../sass'
+                }
+            },
+            your_target: {
+                src      : 'svg',
+                dest     : 'images/svg'
+            }
+        },
+
+
+
     // Concat & minify
     uglify: {
       dev: {
@@ -158,21 +178,25 @@ cssmin: {
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  // grunt.loadNpmTasks('grunt-contrib-jshint');
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-uncss');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
+// grunt.loadNpmTasks('grunt-contrib-connect');
+// grunt.loadNpmTasks('grunt-contrib-watch');
+// grunt.loadNpmTasks('grunt-contrib-compass');
+// grunt.loadNpmTasks('grunt-exec');
+grunt.loadNpmTasks('grunt-contrib-sass');
+// // grunt.loadNpmTasks('grunt-contrib-jshint');
+// grunt.loadNpmTasks('grunt-contrib-uglify');
+// grunt.loadNpmTasks('grunt-uncss');
+// grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('build', [
-    'jshint',
-    'uglify:dist',
-    'compass:dist'
-  ]);
+ grunt.loadNpmTasks('grunt-iconizr');
+ grunt.registerTask('build-icons', ['iconizr']);
+
+
+grunt.registerTask('build', [
+'jshint',
+'uglify:dist',
+'compass:dist'
+]);
 
 
 

@@ -46,7 +46,8 @@
               <?php 
               $args = array(
               'paged'         => $paged, 
-              'order'         => 'asc',
+              'order'         => 'desc',
+              'orderby' => 'date',
               'post_type' => 'academy-tv',
               'posts_per_page'   => '15',
               );
@@ -61,11 +62,11 @@
              <?php $image = get_field('video_thumbnail'); ?>
       
                         
-            <article class="col-sm-3 center thumb-itm">
-            <a href="<?php the_permalink(); ?>">
-              <img src=" <?php echo $image['sizes']['video-thumb']; ?>" alt="<?php the_title(); ?>">
+            <article class="col-xs-6 col-sm-3 center thumb-itm">
+            <a href="<?php the_field('video_url'); ?>" data-lightbox="iframe">
+               <?php echo _acf_ricg_image( get_field('video_thumbnail')); ?> 
               <h3><?php the_title(); ?></h3>
-              <p><a href="<?php the_field('url'); ?>">watch now</a></p>
+              <p><a href="<?php the_field('video_url'); ?>" data-lightbox="iframe">watch now</a></p>
               </a>
             </article>
 

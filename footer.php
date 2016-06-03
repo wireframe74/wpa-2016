@@ -9,27 +9,25 @@ $args = array(
 $query = new WP_Query( $args ); ?>
 
 <?php  if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-		<section class="advisory-board blur-bg nobottommargin section">
-		   <div class="container">
-		       <div class="row">
-		          <div class="col-sm-12">
+<section class="advisory-board blur-bg nobottommargin section">
+   <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
 
-		          <div class="row academy-wrap">
-		              <div class="col-md-6 pull-left">
-		                 <div class="vertical-align">
-		                   <?php the_field('advisory_board'); ?>...<a href="#">Click Here to read more...</a>
-		                 </div>
-		              </div>
+          <div class="row academy-wrap">
+              <div class="col-md-6">
+                   <?php the_field('advisory_board'); ?><a href="<?php bloginfo('url'); ?>/advisory-board">Click Here to read more...</a>
+              </div>
 
-		               <div class="col-md-6">
-		                  <img src="<?php bloginfo('template_directory'); ?>/images/home/phone-banner.png" class="pull-right" />
-		               </div>
-		          </div>
-		          
-		          </div>
-		       </div>
-		   </div>
-		</section>
+               <div class="col-md-6 hidden-sm-down phone-container">
+                  <img src="<?php bloginfo('template_directory'); ?>/images/home/phone-banner.png" class="pull-right" />
+               </div>
+          </div>
+
+          </div>
+       </div>
+   </div>
+</section>
 	<?php endwhile; ?>
 	<?php endif; ?>
 <?php endif; ?>
@@ -56,10 +54,15 @@ $query = new WP_Query( $args ); ?>
                    </div>
 
                     <div class="col-sm-8">
-                      <form action="" class="form-inline" role="form">
+
+                      <?php gravity_form(4, false, false, false, '', true, 12); ?>
+
+                    <!--   <form action="" class="form-inline" role="form">
                         <input type="email" placeholder="Enter Email Address">
                         <input type="submit" value="Subscribe - it’s Free!">
-                      </form>
+                      </form> -->
+
+
                     </div>
                 </div><!-- row -->
 
@@ -73,9 +76,18 @@ $query = new WP_Query( $args ); ?>
         <div class="container clearfix">
             <div class="row">
                <div class="col-sm-12">
-                    <nav class=="footer-menu">
-					<?php html5blank_nav(); ?>
-					</nav><!-- #primary-menu end -->
+               
+                      <?php 
+                      wp_nav_menu( array(
+                      'menu'              => 'Footer Menu',
+                      'depth'             => 1,
+                      'container'         => 'nav',
+                      'container_class'   => 'footer-menu',
+                      'menu_class'        => '')
+
+                      );
+                      ?>
+		
                 </div>
             </div>
         </div>
@@ -87,11 +99,7 @@ $query = new WP_Query( $args ); ?>
 
 
 <div id="gotoTop" class="icon-angle-up"></div>
-
-
-
-
 <?php wp_footer(); ?>
-
+<?php // the_field('google_analytics', 'options'); ?>
 </body>
 </html>

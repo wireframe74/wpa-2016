@@ -42,7 +42,7 @@
 
 .show-nav #body-nav ul {
 @extend .transition;
-top:300px;
+top:250px;
 position:relative;
 
   li {
@@ -75,7 +75,7 @@ position:relative;
   /*left: 58px;*/
   background: transparent;
   text-align: left;
-  display: block;
+  display: none;
   -o-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -119,6 +119,7 @@ position:relative;
 
   @media (max-width:680px) {
     top:257px;
+    left: 15px;
   }
 
   li {
@@ -141,7 +142,7 @@ padding:5px 15px;
 line-height: 1em;
     
     line-height: 1.1em;
-font-size: 34px;
+font-size: 32px;
 color:#fff;
 opacity: 0;
 border: none;
@@ -158,8 +159,8 @@ transition: all 500ms ease;
     }
 
     @media (max-width:991px) {
-    font-size:40px;
-        letter-spacing: .2em;
+    font-size:36px;
+     
     }
 
 
@@ -245,6 +246,11 @@ nav#body-nav {
       right: 35px;
     }
 }
+
+.show-nav #body-nav  {
+display: block
+}
+
 
   
 .show-nav .push-wrap {

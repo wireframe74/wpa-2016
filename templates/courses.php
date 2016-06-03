@@ -32,6 +32,8 @@ get_header(); ?>
   
         <div class="row">
 
+<div class="desktop-only">
+
       <?php $count = 0; ?>
 
       <?php
@@ -51,26 +53,27 @@ get_header(); ?>
 
 
 
-      <?php $image = get_field('thumbnail'); $count++; ?>
+      <?php $image = get_field('course_thumbnail'); $count++; ?>
        
        
         <?php if ($count % 2 == 0) : ?>
                   <article class="table-align course-listing-itm col-sm-12 pull-right">
                    
                     <div class="td col-sm-8">
+
     			              <section>
     			                <h3><?php the_title(); ?></h3>
     			                <?php the_field('intro'); ?>
     			              </section>
 
-    			              <section class="prices" style="float:left">
-    			                <p><span class="price"><?php the_field('full_price'); ?> AED &nbsp;</span> OR &nbsp; <span class="price"><?php the_field('subscription_price'); ?> AED &nbsp;</span> MONTHLY </p>
+    			              <section class="prices">
+    			                <p><span class="price">£<?php the_field('full_price'); ?>&nbsp;</span> OR &nbsp; <span class="price">£<?php the_field('subscription_price'); ?>&nbsp;</span> MONTHLY </p>
     			                <p><a href="<?php the_permalink(); ?>">READ MORE</a></p>
     			              </section>
                     </div>
 
                      <div class="td col-sm-4">
-                     <img src="<?php echo $image['url']; ?>" alt="<?php the_title(); ?>">
+                      <?php echo _acf_ricg_image( get_field('course_thumbnail')); ?> 
                      </div>
                   </article>
 
@@ -78,7 +81,7 @@ get_header(); ?>
                   <?php else: ?>
 
                   <article class="table-align course-listing-itm col-sm-12 pull-left">
-                    <div class="row">
+                   
                         
                         <div class="td col-sm-4">
                           <img src="<?php echo $image['url']; ?>" alt="<?php the_title(); ?>">
@@ -91,20 +94,87 @@ get_header(); ?>
                             </section>
 
                             <section class="prices">
-                              <p><span class="price"><?php the_field('full_price'); ?> AED &nbsp;</span> OR &nbsp; <span class="price"><?php the_field('subscription_price'); ?> AED &nbsp;</span> MONTHLY </p>
+                              <p><span class="price">£<?php the_field('full_price'); ?>&nbsp;</span> OR &nbsp; <span class="price">£<?php the_field('subscription_price'); ?>&nbsp;</span> MONTHLY </p>
                               <p><a href="<?php the_permalink(); ?>">READ MORE</a></p>
                             </section>
                         </div>
-                      </div>
+                 
                   </article>
 
         <?php endif; ?>
 
 
-<?php endwhile; ?>
-<?php endif; ?>
+
+<?php endwhile; endif; rewind_posts(); ?>
+
+</div>
+
+
+  <div class="mobile-only">
+ <?php
+      $args = array(
+      'post_parent'  => 4,  
+      'post_type'   => 'page',
+      'order'               => 'ASC',
+      'orderby'             => 'page_order',
+      'posts_per_page'=> 100  
+      );
+
+      $query = new WP_Query( $args );
+      if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+
+
+
+  
+
+
+      <?php $image = get_field('course_thumbnail'); $count++; ?>
+       
+       
+ 
+  
+      <article class="course-listing-itm col-xs-12">
+      
+
+  
+
+       <div class="td col-sm-4">
+       <?php echo _acf_ricg_image( get_field('course_thumbnail')); ?> 
+       </div>
+
+
+       <div class="td col-sm-8">
+
+          <section>
+            <h3><?php the_title(); ?></h3>
+            <?php the_field('intro'); ?>
+          </section>
+
+          <section class="prices center">
+            <p><span class="price">£<?php the_field('full_price'); ?>&nbsp;</span> OR &nbsp; <span class="price">£<?php the_field('subscription_price'); ?>&nbsp;</span> MONTHLY </p>
+            <a class="btn btn-primary" href="<?php the_permalink(); ?>">READ MORE</a>
+          </section>
+      </div>
+
+
+
+
+
+    </article>
+
+
+
+
+
+<?php endwhile; endif; rewind_posts(); ?>
+
+
+
+
 
 <?php edit_post_link(); ?>
+
+    </div>
 
          </div><!-- row -->
 
@@ -182,7 +252,7 @@ get_header(); ?>
       </div><!-- .container -->
   </section>
 
-
+<?php  if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <section class="course-comparison border-top topmargin-lg bottommargin-sm">
       <div class="container">
           <div class="row">
@@ -194,12 +264,12 @@ get_header(); ?>
                         <div class="table-align left-img">
 
                             <div class="td">
-                                <img src="<?php bloginfo('template_directory'); ?>/images/custom/course-listing/course-comparison.jpg" alt="">
+                              <?php echo _acf_ricg_image( get_field('course_comparison_image')); ?>
                             </div>
 
                             <div class="td center">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                <p class="topmargin-sm"><a class="btn btn-primary">Download Guide</a></p>
+                                <?php the_field('course_comparison_text'); ?>
+                                <p class="topmargin-sm"><a class="btn btn-primary" href="<?php bloginfo('url'); ?>/course-comparison-guide/">Download Guide</a></p>
                             </div>
 
                         </div>
@@ -209,5 +279,7 @@ get_header(); ?>
    </div>
  </div>
 </section>
+
+<?php endwhile; endif; rewind_posts(); ?>
 
 <?php get_footer(); ?>

@@ -1,5 +1,16 @@
 .page-template-inspire {
 
+
+	.flex {
+		@media (max-width:400px) {
+		display: block;
+		.col-xs-3 {
+			width: 100%
+		}
+
+		}
+	}
+
 	.student-success-wrap {
 
 		padding: 40px 0;
@@ -16,7 +27,15 @@
 	}
 
 	
+.success-stories-wrap {
 
+	.profile-item {
+		@media (max-width:400px) {
+		width: 100%;
+		}
+	}
+
+}
 	.student-month-wrap {
 
 
@@ -37,3 +56,4 @@
 		}
 	}
 }
+

@@ -1,13 +1,18 @@
 // VARIABLE + MIXINS
 
- $primary-color:#ea7d97;  
+ $primary-color:#f0856a;
  $secondary-color: #e6ddce;
  $tertiary-color: #e6ddce;
- $light-beige: #f8f3e9;
+ $light-beige: #EFE8DE;
+ $black: #000;
 
 $grey:#424242;
 $light-grey:#DFDFDF;
-$lighter-grey: #f7f7f7;
+$lighter-grey: #f7f7f7; 
+
+section.light-beige-bg {
+	background-color: #f6f4ea;
+}
 
 
 
@@ -16,10 +21,10 @@ $lighter-grey: #f7f7f7;
  	text-transform: uppercase;
  }
 
-
+ 
 
 .body-copy {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Arimo', sans-serif;
 }
 
 .secondary-color {

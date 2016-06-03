@@ -1,10 +1,17 @@
-.full-width {
+body .content a,
+body .content li a  {
 	
-	h2 {
+	font-weight: bold;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
+
+h2 {
 		font-weight: bold;
 		font-size: 1.1em;
 	}
-}
 
 a {
 
@@ -31,8 +38,31 @@ h3  {
 
 body {
 	font-size:14px;
+
+	p {
+	margin: 0 0 20px;
+	}
+
+
+
+
 }
 
+div.page-intro p {
+	font-size: 1.4em;
+}
+
+.column-2 h2,
+.column-3 h2 {
+	&:first-child {
+		margin-top: 0
+	}
+}
+
+
+blockquote p {
+    font-size: 1.15em;
+}
 
 	h1,h2,h3,h4,h5,
 	ul.site-nav li a{
@@ -61,6 +91,9 @@ body {
 	.em {
 		font-family: 'Alex Brush', cursive;
 		font-weight: normal;
+		color: #f0856a;
+		text-transform: none;
+		letter-spacing: 0;
 	}
 	 
 
@@ -105,7 +138,7 @@ body {
 		width:auto;
 	
 		margin-bottom:40px;
-		line-height:1.4em;
+		line-height:1.7em;
 
 	}
 
@@ -124,13 +157,10 @@ body {
 	font-family: 'Alex Brush', cursive;
 	font-size: 2.6em;
 	letter-spacing:0;
-	color: #C1A657;
+	color: #f0856a;
 	text-transform:none;
-	
 	font-weight:normal;
 	}
-
-
 
 
 
@@ -204,3 +234,8 @@ h2.title.bdr-btm {
 	    }
 	}
 
+
+
+.gform_title {
+    margin-bottom: 20px;
+}

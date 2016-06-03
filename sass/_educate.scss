@@ -1,0 +1,98 @@
+body.page-template-educate {
+
+
+.ebook-worksheets > .container-fluid > .row {
+	position: relative;
+
+	>.container {
+		position: relative;
+		top: 0;
+	}
+}
+	.table-align.left-img {
+		padding: 0;
+
+		.td img {
+			max-width: none;
+		}
+
+		.td:first-child {
+			width: 45%;
+		}
+	}
+
+	.ebook-worksheets {
+
+		.primary-bg-no-width,
+		.blur-bg-no-width {
+			display: block;
+			@media(max-width:780px) { 
+
+				text-align: center;
+			}
+		
+		}
+	
+
+		.blur-bg-no-width,
+		.primary-bg-no-width  {
+			&:hover .text-wrap{
+			padding-left:20px;
+			cursor: pointer;
+			}
+		}
+
+		.blur-bg-no-width,
+		.primary-bg-no-width {
+			padding: 50px 40px;
+			@include display-flex;
+
+			@media(max-width:780px) {
+				padding: 50px 20px;
+			}
+
+			h3,
+			p {
+				margin: 0;
+				padding: 0;
+			}
+
+
+		}
+
+		.text-wrap {
+		margin: auto;
+		width: 100%;
+		max-width: 300px;
+		@extend .transition;
+
+			p {
+			line-height: 1.2em;
+			margin-top: 7px
+			}
+		}
+
+
+		.blur-bg-no-width {
+		background: url(../images/home/blur-bg.jpg) top left no-repeat;
+		background-size: cover;
+
+	
+
+		}
+
+
+		.primary-bg-no-width{
+			background: $primary-color url(../images/custom/educate/left-arrow.png) left center no-repeat;
+			@media(max-width:991px) {
+				background-image: none;
+			}
+			h3 {
+				color: #fff;
+			}
+		}
+	}
+
+
+}
+

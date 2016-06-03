@@ -1,10 +1,11 @@
 .btn {
 text-decoration: none;
 border-radius:3px;
+@include force-wrap;
 
 @extend .transition; 
 
- padding: 15px;
+ padding: 23px;
  border:none;
  min-width:200px;
  @extend .primary-font;
@@ -33,6 +34,7 @@ border-radius:3px;
 	&:focus,
 	 {
 		background-color:darken($primary-color,20%)!IMPORTANT;
+		color: #fff!important;
 		
 		
 	}
@@ -52,6 +54,7 @@ border-radius:3px;
 	&:focus,
 	{
 		background:darken($secondary-color,20%);
+		color: inherit!important;
 		
 	}
 	

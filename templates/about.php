@@ -14,22 +14,29 @@
 
               <h2 class="title right-align">About our <span class="em"> Academy</span></h2>
 
-  
-        <div class="img-wrapper module">
+
+
+
+        <section class="clearfix section nopadding topmargin-lg bottommargin-lg">
+          <div class="col-sm-6">
+
+
+        <div class="img-wrapper module bottommargin">
                       <a href="<?php the_field('video_url'); ?>" data-lightbox="iframe" class="latest-hangout-link"></a>
                        <?php $imageOne = get_field('video_image'); ?>
-                  <img src="<?php echo $imageOne['url']; ?>" alt="<?php the_title(); ?>">
+                        <?php echo _acf_ricg_image( get_field('video_image')); ?> 
+
               </div>
 
 
-        <section class="clearfix table-align topmargin-sm section topmargin-lg bottommargin-lg">
-          <div class="col-sm-6 td">
-            <img src="<?php bloginfo('template_directory'); ?>/images/custom/about/fun-facts.png" alt="" class="alignleft">
+       
           </div>
 
-          <div class="col-sm-6 td">
+          <div class="col-sm-6 fun-facts ">
+            <div class="center bottommargin">
+            <?php echo _acf_ricg_image( get_field('fun_facts_image')); ?></div>
             <?php the_field('fun_facts'); ?>
-          </div>
+            </div>
         </section>
 
 
@@ -48,7 +55,7 @@
               <h2 class="title left-align">Our <span class="em"> Tutors</span></h2>
 
 
-        <section class="clearfix bottommargin">
+        <section class="clearfix row bottommargin">
 
   
           <?php if( have_rows('profile') ): $i = 0; while ( have_rows('profile') ) : the_row(); ?>
@@ -57,7 +64,7 @@
 
              <?php  $i++; ?>
 
-              <div class="col-sm-5ths center profile-item">
+              <div class="col-xs-4 col-sm-4 col-md-3 center profile-item">
                  <button data-toggle="modal" data-target=".section-<?php echo $i; ?>"> 
                  <img src=" <?php echo $imageOne['sizes']['thumbnail']; ?>" alt="<?php the_sub_field('name'); ?>">
                 <h3><?php the_sub_field('name'); ?></h3>
@@ -81,7 +88,7 @@
   <div class="container">
     <div class="row">
              <div class="col-sm-12 center">
-        <div class="row">
+        <div class="row clearfix">
 
         <h3 class="bottommargin-sm">Partners</h3>
 
@@ -89,7 +96,7 @@
             <?php $imageTwo = get_sub_field('thumbnail');
             if( $imageTwo ): ?>
 
-            <div class="col-sm-5ths center">
+            <div class=" col-xs-4 col-sm-4 partners-itm col-md-5ths center">
               <a target="_blank" href="<?php the_sub_field('website_link'); ?>">
                 <img src=" <?php echo $imageTwo['sizes']['thumbnail']; ?>" alt="<?php the_sub_field('name'); ?>">
                 <h3><?php the_sub_field('name'); ?></h3>

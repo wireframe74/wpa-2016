@@ -2,6 +2,58 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 	margin-top: 0;
 }
 
+.page-form {
+    margin-top: -80px;
+}
+
+body .gform_wrapper .top_label select.medium {
+    width: 100%;
+    padding: 15px;
+}
+
+.gfield_label {
+    display: none
+}
+
+.gform_title {
+    margin-bottom: 30px
+}
+
+.content  .gform_wrapper ul  {
+
+    li.ginput_right {
+    float: right;
+    width: 49%;
+    }
+
+    li.ginput_left {
+    float: left;
+    width: 49%;
+    }
+
+li.input-full {
+    width: 100%;    
+}
+
+}
+
+
+.content  .gform_wrapper ul  li.gfield_error {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+    border: 1px solid #DA5252;
+    }
+
+    
+
+
+}
+
+
 
 input[type="submit"],
 input[type="text"],
@@ -17,12 +69,18 @@ input[type="submit"] {
 		width:100%;
 	}
 
+    &:focus {
+    border: 1px solid $primary-color;
+    }
+
+
     
 } 
 
 
+
 input[type="submit"] {
-	max-width:320px;
+	max-width:250px;
 	float:right;
 	color:#fff;
 	@extend .btn-primary;
@@ -35,23 +93,46 @@ input[type="submit"] {
 
     li {
     float:left;
-    width:48%;
     list-style:none;
     padding:0;
 
         input[type="password"],
         input[type="number"],
         input[type="text"] {
-            background-color:#CCC;
+
         }
 
     }
 
 }
 
+.content .grav-form-wrap .gform_wrapper {
+
+        input[type="password"],
+        input[type="number"],
+        input[type="text"],
+        textarea,
+        select {
+            background-color: transparent;
+
+            &:focus {
+                border: 1px solid $primary-color;
+            }
 
 
 
+        }
+
+} 
+
+textarea {
+    height: 100px;
+    width: 100%!Important;
+}
+
+.content .gform_wrapper ul li.gform_validation_container {
+    display: none
+}
 .content  .gform_wrapper  {
 
 	width:100%;
@@ -61,7 +142,7 @@ input[type="submit"] {
     .gform_footer {
     padding: 0;
     margin-bottom: 60px;
-    padding-right: 1%; 
+    
 	}
     
 
@@ -71,16 +152,18 @@ input[type="submit"] {
 
     	width:100%;
 
-    	li.input-full-width {
+    	li.input-full{
     		width: 100%;
 
     		ul.gfield_checkbox {
     			li{
     			width: 100%;
-    			padding-left: 30px;
+    		
     			@extend .body-copy;
     			text-transform:none;
-    			@extend .body-copy; 
+
+
+    			
     			
 
     			label {
@@ -100,7 +183,7 @@ input[type="submit"] {
 	    li {
 		 float: left;
 	    display: inline-block;
-	    width: 50%;
+	   
 	    list-style: none;
 	    padding: 0;
 	    padding-left: 0;
@@ -109,7 +192,7 @@ input[type="submit"] {
 
 	   
 	    clear: none!Important;
-	    padding-right: 1%;
+	  
 	    margin-bottom: 10px;
 	    margin-top:none;
 
@@ -129,11 +212,20 @@ input[type="submit"] {
         input[type="text"],
         textarea,
         select {
-            background-color:$light-grey;
+            background-color:transparent;
             padding:10px 13px;
             width:100%;
-             @extend .primary-font;
+           
              border:none;
+          
+            width: 100%;
+            border: 1px solid #e6ddce;
+            border-radius: 3px;
+            font-size: 14px;
+            text-transform: none;
+            &:focus {
+                border: 1px solid $primary-color;
+            }
 
         }
 
@@ -144,4 +236,120 @@ input[type="submit"] {
     
     
 
+}
+.gform_wrapper ul.gfield_checkbox li  {
+    width: 100%;
+    float: left;
+}
+
+.validation_error {
+    @extend .body-copy;
+    margin: 10px 0 30px;
+    font-size: 1.2em;
+}
+
+
+body {
+
+    .gform_wrapper ul.gfield_checkbox li ,
+    .gform_wrapper ul.gfield_radio li,
+    li.gfield {
+        text-align: left;
+    }
+
+    .gform_wrapper ul.gfield_checkbox li input[type=checkbox]:checked+label, 
+    .gform_wrapper ul.gfield_radio li input[type=radio]:checked+label,
+    .gform_wrapper ul.gfield_checkbox li input[type=checkbox]+label, 
+    .gform_wrapper ul.gfield_radio li input[type=radio]+label,
+    .content .gform_wrapper ul li.input-full ul.gfield_checkbox li label,
+    .gfield small {
+    font-weight: normal;
+    text-transform: none;
+    font-size: 14px;
+    padding-left: 0;
+    text-indent: 0;
+    font-weight: normal;
+    letter-spacing: 0;
+    color: #333;
+    display: inline;
+    margin: 0 0 0 5px;
+    
+    }
+
+   
+
+ }
+
+.gform_wrapper .gform_footer input.button, 
+.gform_wrapper .gform_footer input[type=image], 
+.gform_wrapper .gform_footer input[type=submit] {
+    padding: 0;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    margin: 10px 0 40px;
+    width: 100%;
+    max-width: 250px;
+
+    @media (max-width:600px) {
+            max-width: none;
+
+    }
+}
+
+.start-over-wrap {
+    display: none;
+}
+
+.start-over{
+margin: 0 auto;
+float: none;
+display: block;
+} 
+
+
+
+.gform_heading {
+    margin-top: 40px;
+}
+
+
+// DOWNLOAD BROCHURE FORM
+
+.gfield_checkbox {
+
+}
+
+.download-brochure .content .gform_wrapper ul li.input-full ul.gfield_checkbox {
+  @include flex-wrap(wrap);
+  @include  justify-content(flex-start);
+  margin-top: 20px;
+}
+
+
+
+body.download-brochure .content .gform_wrapper ul li.input-full ul.gfield_checkbox li {
+    display: inline;
+    width: auto;
+    margin-right: 20px;
+
+    
+    @media all and (min-width:750px) and (max-width:991px) {
+    width: 50%;
+    margin-right: 0;
+
+    label {
+       font-size: 13px;
+    }  
+    }
+    
+
+    @media all and (min-width:200px) and (max-width:749px) {
+    width: 100%;
+      }
+    
+    
+    
+    
+    
 }

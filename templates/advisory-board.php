@@ -28,7 +28,7 @@
 
   <div class="container">
           <div class="row">
-          <div class="col xs-12 center"><h2 class="title">Make Sure to Check Them</h2></div>
+          <div class="col xs-12 center"><h2 class="title">Click on each logo for more details</h2></div>
 
    <?php if( have_rows('profile') ): $i = 0; while ( have_rows('profile') ) : the_row(); ?>
             <?php $imageOne = get_sub_field('thumbnail');
@@ -66,8 +66,8 @@
 
      
        if( have_rows('profile') ):  $j = 0; while ( have_rows('profile') ) : the_row(); ?>
-      <?php $imageOne = get_sub_field('thumbnail');
-      if( $imageOne ):
+      <?php $imageOne = get_sub_field('head_shot');
+   
       ?>
 
      <?php  $j++; ?>
@@ -85,7 +85,10 @@
                                         <div class="modal-body">
                                           <div class="row">
                                             <div class="col-sm-12 center">
-                                            <img class="profile-img" src="<?php echo $imageOne['sizes']['thumbnail']; ?>" alt="<?php the_sub_field('name'); ?>">
+<?php if(get_sub_field('head_shot')) : ?>
+<img class="profile-img" src="<?php echo $imageOne['sizes']['medium']; ?>" alt="<?php the_sub_field('name'); ?>">
+<?php endif; ?>
+
                                             <div class="margintop-sm">
                                               <?php the_sub_field('description'); ?>
                                             </div>
@@ -99,7 +102,6 @@
                             </div>
                         </div>
 
-                        <?php endif; ?>
             <?php endwhile; endif;  ?>
 
 <?php endwhile; ?>

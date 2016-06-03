@@ -1,0 +1,68 @@
+.page-template-contact {
+
+	.content .gform_wrapper ul {
+		position: relative;
+		overflow: hidden;
+	}
+
+	li#field_2_3 {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 49%; 
+
+		@media (max-width:767px) {
+		position: relative;
+		width: 100%;
+		}
+	
+
+
+
+		textarea {
+			height: 222px;
+		}
+	}
+
+	
+	.content .gform_wrapper ul li.clear-left {
+	clear:left!important;
+	width: 49%;
+
+		@media (max-width:767px) {
+		width: 100%;
+		}
+	}
+
+	.gform_wrapper .gform_footer input[type=submit] {
+		max-width: none;
+	}
+
+	.gform_footer {
+		margin-top: -20px;
+	}
+
+	strong {
+		color: $primary-color;
+		font-weight: normal;
+	}
+
+	h3 {
+		color: $secondary-color;
+	}
+
+	.gform_wrapper {
+		padding-top: 10px;
+
+		@media all and (min-width:200px) and (max-width:991px) {
+		padding-top: 12px;
+		  }
+		
+ }
+
+	#field_2_5 {
+		margin:5px 0 12px 0;
+	}
+}
+
+

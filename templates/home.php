@@ -5,13 +5,66 @@
 <?php  if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 
+
+
+<section class="home-course-intro topmargin bottommargin">
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-6 topmargin">
+    <?php $imageCourse = get_field('course_list_image'); ?>
+    <img src="<?php echo $imageCourse['sizes']['medium']; ?>" alt="<?php the_title(); ?>">
+    <?php the_field('course_list'); ?>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+    <div class="img-wrapper module bottommargin">
+    <a href="<?php the_field('course_video_url'); ?>" data-lightbox="iframe" class="latest-hangout-link"></a>
+    <?php $imageOne = get_field('course_video_image'); ?>
+    <img src="<?php echo $imageOne['url']; ?>" alt="<?php the_title(); ?>">
+    </div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+
+<section class="section icons">
+ <div class="container">
+  <div class="row">
+      <div class="col-sm-12">
+         <div class="row">
+
+              <div class="table-align left-img">
+
+                  <div class="td">
+                  <?php echo _acf_ricg_image( get_field('ncfe_accreditation_image')); ?>
+                  </div>
+
+                  <div class="td">
+                    <?php the_field('ncfe_accreditation_text'); ?>
+                  </div>
+                  
+                </div>
+
+            <?php edit_post_link(); ?> 
+          </div>
+      </div>
+    </div>
+ </div>
+</section>
+
+
+
+
 <section class="about border-top">
- 
       <div class="container">
           <div class="row">
+        
 
              <div class="col-sm-12">
-
              <h2 class="title about pull-right">What they say <span class="em">About Us</span></h2>
   
               <?php  if( have_rows('testimonial') ): while ( have_rows('testimonial') ) : the_row(); ?>
@@ -36,6 +89,11 @@
 
              </div><!-- span-->
           </div> <!-- .row -->
+
+
+
+
+
       </div><!-- .container -->
   </section>
 
@@ -58,13 +116,11 @@
           <div class="col-sm-12">
 
           <div class="row academy-wrap">
-              <div class="col-md-6 pull-left">
-                 <div class="vertical-align">
-                   <?php the_field('advisory_board'); ?>...<a href="#">Click Here to read more...</a>
-                 </div>
+              <div class="col-md-6">
+                   <?php the_field('advisory_board'); ?><a href="<?php bloginfo('url'); ?>/advisory-board">Click Here to read more...</a>
               </div>
 
-               <div class="col-md-6">
+               <div class="col-md-6 hidden-sm-down phone-container">
                   <img src="<?php bloginfo('template_directory'); ?>/images/home/phone-banner.png" class="pull-right" />
                </div>
           </div>
@@ -86,13 +142,20 @@
           <div class="row">
              <div class="col-sm-12">
 
+          
+
+
+
                 <div class="table-align left-img">
 
-                  <div class="td"><img src="<?php bloginfo('template_directory'); ?>/images/home/work-experience.png" alt="" class="img-responisve"></div>
+                  <div class="td">
+                  <?php echo _acf_ricg_image( get_field('work_experience_image')); ?>
+                  </div>
 
                   <div class="td">
                     <h2 class="title bdr-btm">Work <span class="em">Experience</span></h2>
                     <?php the_field('work_experience'); ?>
+                    <a href="<?php the_field('work_experience_video_url'); ?>" class="btn btn-primary" target="_blank">Find Out More</a>
                   </div>
                   
                 </div>
@@ -162,6 +225,7 @@
 
                 <h2 class="heading background"><span class="bg-line">Academy <span class="em">Tv</span></span></h2>
                     <div class="tleft"><?php the_field('academy_tv'); ?></div>
+                    <a href="<?php bloginfo('url'); ?>/academy-tv" class="btn btn-primary topmargin-sm">Watch Videos Now</a>
                  </div>
 
                  <div class="td"><img src="<?php bloginfo('template_directory'); ?>/images/home/academy-tv-thumb.jpg" alt="Academy TV" class="img-responisve"></div>
